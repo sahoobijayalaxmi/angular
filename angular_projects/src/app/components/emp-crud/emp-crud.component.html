@@ -1,0 +1,44 @@
+
+
+<h1 class="text-center">Employee crud with http</h1>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-8">
+            <table class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>firstName</th>
+                        <th>lastName</th>
+                        <th>fullname</th>
+                        <th>email</th>
+                         <th>Salary</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let emp of employees ">
+                        <td>{{emp.id}}</td>
+                        <td>{{emp.firstName}}</td>
+                        <td>{{emp.lastName}}</td>
+                        <td>{{emp.firstName}} {{emp.lastName}}</td>
+                        <td>{{emp.email}}</td>
+                        <td>{{emp.salary}}</td>
+                        <td><button class="btn btn-danger" (click)="deleteEmp(emp.id)">delete</button></td>
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-sm-4">
+            <div class="border p-1">
+                <p>id: <input #id/></p>
+                <p>firstname:<input #firstName/></p>
+                <p>lastname:<input #lastName /></p>
+                <p>email:<input #email/></p>
+                <p>salary:<input #salary/></p>
+                <button class="btn btn-primary" (click)="addEmp(id.value,firstName.value,lastName.value,email.value,salary.value)">addemp</button>
+            </div>
+        </div>
+    </div>
+</div>

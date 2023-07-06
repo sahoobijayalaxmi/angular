@@ -1,0 +1,43 @@
+
+<style>
+    button {
+        margin: 5px
+    }
+</style>
+<h1>Angular Nested FormArray / Dynamic FormArray</h1>
+<form [formGroup]="empForm" (ngSubmit)="onSubmit()">
+    <div formArrayName="employees">
+        <div *ngFor="let employee of employees().controls; let empIndex=index">
+            <div [formGroupName]="empIndex" style="border: 2px solid blue; padding: 10px; width: 700px; margin: 10px;">
+                {{empIndex+1}} <strong>First Name :</strong>
+                <input type="text" formControlName="firstName" />
+               <strong> Last Name:</strong>
+                <input type="text" formControlName="lastName" />
+
+                <button (click)="removeEmployee(empIndex)" class="btn btn-danger">Remove</button>
+
+                <div formArrayName="skills">
+                    <div *ngFor="let skill of employeeSkills(empIndex).controls; let skillIndex=index">
+                        <div [formGroupName]="skillIndex">
+                            {{skillIndex+1}} <strong>Skill :</strong>
+                            <input type="text" formControlName="skill" />
+                            <strong>Exp:</strong>
+                            <input type="text" formControlName="exp" />
+
+                            <button (click)="removeEmployeeSkill(empIndex,skillIndex)" class="btn btn-danger">
+                                Remove
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <button type="button" (click)="addEmployeeSkill(empIndex)" class="btn btn-primary">
+                    Add Skill
+                </button>
+            </div>
+        </div>
+        <button type="button" (click)="addEmployee()" class="btn btn-success">Add Employee</button>
+    </div>
+    <input type="submit" value="submit" class="btn btn-success">
+</form>
+
+{{this.empForm.value | json}}

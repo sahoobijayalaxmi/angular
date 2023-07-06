@@ -1,0 +1,36 @@
+
+
+<div class="container mt-5 mb-5">
+  <div class="row">
+    <div class="col-md-8">
+      <input type="search"  placeholder="Search here..." class="form-control" >
+      <!-- [(ngModel)]="filterTerm" -->
+    </div>
+    <div class="col-md-4">
+      <button class="btn btn-primary" (click)="pricelowtohigh()">price low to high</button>
+      <button class="btn btn-secondary m-2" (click)="pricehightolow()">price high to low</button>
+    </div>
+    <div *ngFor="let product of products | paginate: { itemsPerPage: 4, currentPage: p } " class="col-md-3">
+      <!-- | filter: filterTerm -->
+      <div class="card" zoom>
+        <img src={{product.image}} class="card-img-top" alt="not available">
+        <div class="card-body">
+          <p class="card-text lead fw-bold">{{product.category}}</p>
+          <h6 class="card-title">{{product.title}}</h6>
+          <!-- <p class="card-text lead description-para ">{{product.description}}</p> -->
+          <p [hidden]="flag">{{product.description}}</p>
+          <p class="card-text fw-bold">price:{{product.price | currency :'INR'}}</p>
+          <!-- <a href="#" class="btn btn-primary">Buy Now</a>
+          <a href="#" class="btn btn-secondary m-2 " (click)="flag=!flag" >{{flag?'view Details':'Hide Details'}}</a> -->
+          <a href="#" class="btn btn-secondary m-2 " [routerLink]="['/product-details']" 
+          [queryParams]="{id:product.id,title:product.title,price:product.price,image:product.image}">view</a>
+         
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 offset-4 mt-5">
+       <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    </div>
+   
+  </div>
+</div>

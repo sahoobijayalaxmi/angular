@@ -1,0 +1,69 @@
+ <nav class="navbar navbar-expand-lg navbar-dark bg-dark pt-3 pb-3">
+    <div class="container-fluid">
+      <a class="navbar-brand fw-bold" href="#">Angular</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 head">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#" routerLink="home" routerLinkActive="active">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about" routerLink="aboutus" routerLinkActive="active">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="services" routerLink="service" routerLinkActive="active">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact" routerLink="contact" routerLinkActive="active">Contact</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="careers" routerLink="careers" routerLinkActive="active">Careers</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="photos" routerLink="photos" routerLinkActive="active">Photos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="products" routerLink="products" routerLinkActive="active">Products</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="grocery" routerLink="grocery" routerLinkActive="active">grocery</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="travel" routerLink="travel" routerLinkActive="active">travel</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="login">LogIn</a>
+          </li>
+
+        </ul>
+        <!-- <form class="d-flex">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-warning" type="submit">Search</button>
+        </form> -->
+
+        <form action="https://google.com/search" target="_blank" type="GET">
+
+          <label> 
+             <input type="search" name="q">
+           </label>
+        
+          <button type="submit" value="Submit" class="btn btn-warning btn-sm">Submit</button>
+        
+        </form>
+      </div>
+    </div>
+  </nav> 
+
+  <script>
+    var form = document.querySelector("form");
+    
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          var search = form.querySelector("input[type=search]");
+          search.value = " " + search.value;
+          form.submit();
+        });
+        </script>
+

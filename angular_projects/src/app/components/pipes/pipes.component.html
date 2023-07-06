@@ -1,0 +1,48 @@
+<h1>this is angular class</h1>
+
+<h3>{{name}}</h3>
+<h3>{{name | uppercase}}</h3>
+<h3>{{name | lowercase}}</h3>
+<h3>{{name |titlecase}}</h3>
+
+
+<h3>{{mysal}}</h3>
+<h3>{{mysal | currency}}</h3>
+<h3>{{mysal | currency:'INR'}}</h3>
+<h3>{{mysal | currency:'&euro;'}}</h3>
+<!-- input | pipename : arguments -->
+<br><br><br>
+
+<h2>{{today}}</h2>
+<h2>{{today | date}}</h2>
+<h2>{{today | date :'fullDate' | uppercase}}</h2>
+<h2>{{today | date :'mediumDate' | lowercase}}</h2>
+<h2>{{today | date :'shortDate'}}</h2>
+<h2>{{today | date :'fullTime'}}</h2>
+<h2>{{today | date :'mediumTime'}}</h2>
+<h2>{{today | date :'shortTime'}}</h2>
+<h2>{{today | date :'dd-MM-yyyy'}}</h2>
+<h2>{{today | date :'fullTime':'UTC'}}</h2>
+<br><br><br>
+
+<h4>{{12.1113344526 | number : "3.2-5"}}</h4>
+<h4>{{0.25 | percent}}</h4>
+<h4>{{4.05 | percent}}</h4>
+
+
+<h4>{{user}}</h4>
+<h4>{{user | json}}</h4>
+<h4 *ngFor='let entry of user | keyvalue'>
+    {{ entry.key }}----{{ entry.value }}
+</h4>
+
+<h4>{{arr}}</h4>
+<h4>{{arr | slice:2}}</h4>
+<h4>{{arr | slice:2:4}}</h4>
+
+----------------------------------------
+<textarea cols="30" rows="5" maxlength="100" [(ngModel)]="msg"></textarea>
+<h4>Remaining chars:{{msg | remaining}}</h4>
+
+<textarea cols="30" rows="5" maxlength="200" [(ngModel)]="msg"></textarea>
+<h4>Remaining chars:{{msg | remaining:200}}</h4>

@@ -1,0 +1,159 @@
+
+<!-- <div class="container">
+  <div class="row">
+    <div class="col-sm-8">
+      <h1 class="text-center">Employee-Data</h1>
+      <table class="table table-bordered table-striped">
+        <thead class="text-center">
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Salary</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody class="text-center">
+          <tr *ngFor="let employee of employees; let i=index">
+            <td>{{employee.id}}</td>
+            <td>{{employee.name}}</td>
+            <td>{{employee.salary}}</td>
+            <td>
+              <button type="button" class="btn btn-primary" data-bs-toggle="modal"  data-bs-target="#exampleModal" (click)="viewEmp(employee)"> View</button>
+              <button class="btn btn-warning m-2" >Edit</button>
+              <button class="btn btn-danger" (click)="deleteemp(i)">Delete</button>
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+
+
+    <div class="col-sm-4">
+      <form>
+        <h3 class="text-center">Add Employee Data</h3>
+        <!-- <div class="mb-1">
+          <label class="form-label">ID</label>
+          <input type="number" class="form-control" id="id" aria-describedby="emailHelp">
+
+        </div>
+        <div class="mb-1">
+          <label class="form-label">Name</label>
+          <input type="text" class="form-control" id="name">
+        </div>
+        <div class="mb-1">
+          <label class="form-label">Salary</label>
+          <input type="text" class="form-control" id="sal">
+        </div> -->
+        <!-- <p>
+          Emp Id: <input #empid />
+      </p>
+      <p>
+          Name: <input #name />
+      </p>
+      <p>
+          Salary: <input #sal />
+      </p>
+
+        <button  class="btn btn-primary" (click)="addEmp(empid.value,name.value,sal.value)">Add User</button>
+      
+      </form>
+    </div>
+  </div>  -->
+
+  
+
+ 
+  <!-- <div  [ngStyle]="{'display':display}" class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Employee Details</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>ID is:{{selectedEmployee?.id}}</p>
+          <p> Name is :{{selectedEmployee?.name}}</p>
+          <p> Salary is :{{selectedEmployee?.salary}}</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        
+        </div>
+      </div>
+    </div>
+  </div> -->
+  
+  
+  <div id="d1" class="containter" style="padding: 10px;">
+    <div class="row">
+        
+        <div  class="col-sm-6 offset-1 text-center">
+            <h3 class="">Employee Details</h3>
+            <a class="float-end" (click)="empNew(); lblEmployee='Add employee details'">Add Employee <i
+                    class="fa fa-user-plus" aria-hidden="true"></i></a>
+            <table class="table table-bordered text-center table-striped">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Salary</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let emp of empDtl; let i = index">
+                        <td>{{emp.eId}}</td>
+                        <td>{{emp.eName}}</td>
+                        <td>{{emp.eSal}}</td>
+                        <td>
+                            <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                data-bs-target="#exampleModal" (click)="empView(emp)"><i class="fa fa-eye" aria-hidden="true"></i> View</button>
+                            <button class="btn btn-secondary mx-1" (click)="empEdit(emp)"><i class="fad fa-edit"></i> Edit</button>
+                            <button class="btn btn-danger" (click)="empDelete(i)">Delete</button> -->
+                            <i class="fa fa-eye" aria-hidden="true" data-bs-toggle="modal"
+                                data-bs-target="#exampleModal" (click)="empView(emp)"></i>
+                            <i class="fa fa-edit mx-4" (click)="empEdit(emp); lblEmployee='Modify employee details'"></i>
+                            <i class="fa fa-trash" aria-hidden="true" (click)="empDelete(i)"></i>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <!-- <button class="btn btn-primary offset-2 col-sm-4" (click)="empNew()">Add New Employee</button> -->
+
+        </div>
+
+
+        <div id="d2" class="col-sm-3 offset-1" *ngIf="bln">
+            <h4 class="text-center">{{lblEmployee}}</h4><br>
+            ID: <input [(ngModel)]="eId" type="text" class="form-control" placeholder="Enter employee ID"><br>
+            Name: <input [(ngModel)]="eName" type="text" class="form-control" placeholder="Enter employee name"><br>
+            Salary: <input [(ngModel)]="eSal" type="text" class="form-control" placeholder="Enter employee salary"><br>
+            <div class="text-center">
+                <button class="btn btn-outline-success"
+                    on-click="empSave_Update(selectedEmp); bln=false;">{{btnSave_Update}}</button>
+                <button class="btn btn-outline-secondary" on-click="bln=false">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Employee details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    ID : {{selectedEmp.eId}} <br>
+                    Name : {{selectedEmp.eName}}<br>
+                    Salary : {{selectedEmp.eSal}}<br>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

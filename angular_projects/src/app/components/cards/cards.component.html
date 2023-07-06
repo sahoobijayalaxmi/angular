@@ -1,0 +1,67 @@
+<h1 class="text-center">this is a card</h1>
+
+ <div>Name is :{{name}}</div>
+<div>Name is : <span [innerHTML]="name"></span></div>
+<div>Name is : <span bind-innerHTML="name"></span></div> 
+
+<img src={{img_url}} alt="not" class="m-1">
+<img [src]="img_url" alt="not" class="m-1">
+<img bind-src="img_url" alt="not" class="m-1">
+
+
+
+<input value="lity" class="m-1">
+1 way:<input value={{name}} class="m-1">
+1 way:<input [value]=name class="m-1">
+1 way:<input bind-value=name class="m-1">
+2 way:<input [(ngModel)]="name" class="m-1">
+
+
+
+<button class="btn btn-success">button-1</button>
+<button class="btn btn-success" disabled>button-2</button>
+<!-- interpolation doesnt support boolean value -->
+<button class="btn btn-success" disabled={{flag}}>button-3</button>  
+<button class="btn btn-success" [disabled]=flag>button-4</button>
+<button class="btn btn-success" bind-disabled=flag>button-5</button>
+
+
+
+<button class="btn btn-primary m-1" (click)="f1()">button-1</button>
+<button class="btn btn-primary m-1" on-click="f1()">button-2</button>
+<button class="btn btn-primary m-1" (click)="add()">click</button>
+
+<br><br><br>
+<h2 [hidden]="flag">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio inventore, incidunt alias animi accusamus iure consectetur vel ex? Magnam eius molestias obcaecati voluptas quia laborum delectus quae nulla necessitatibus laudantium.</h2>
+<button class="btn btn-info" (click)="flag=!flag">SHOW/HIDE</button>
+ <button class="btn btn-info" (click)="flag=!flag">{{flag?'SHOW':'HIDE'}}</button> 
+
+ <br><br>
+ <input  type="{{ flag ? 'text' : 'password'}}" placeholder="Enter your password">
+ <input type="checkbox" (click)="flag=!flag">Show password
+
+ <br><br>
+ <textarea name="" id="" cols="30" rows="10" [(ngModel)]="msg"></textarea>
+ <p>Remaining: {{100-msg.length}}</p>
+
+
+ <select [(ngModel)]="selectedstate">
+    <option >odisha</option>
+    <option >karnataka</option>
+    <option >kerala</option>
+    <option >tamilnadu</option>
+    <option >dehli</option>
+ </select>
+ <h3>your city name is:{{selectedstate}}</h3>
+
+
+
+<p>number-1: <input #num1> </p>
+<p>number-2: <input ref-num2 ></p>
+<button (click)="addition(num1.value,num2.value)">addition</button>
+<button (click)="substraction(num1.value,num2.value)">substraction</button>
+
+<br>
+<input type="text" name="myInputbox1" id="box1" placeholder="enter something..." #myBox1 />
+<button (click)="test(myBox1)">test</button>
+

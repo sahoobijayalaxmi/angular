@@ -1,0 +1,127 @@
+   <h1 class="text-center">Registration form</h1>
+
+   <form #myForm="ngForm" (submit)="submitForm(myForm)">
+
+     <div class="row">
+       <div class="col-md-6">
+         <div class="form-floating mb-3 ">
+           <input type="text" class="form-control" id="name" name="name" placeholder="Enter name" #name="ngModel"
+             ngModel required>
+           <div class="text-danger" *ngIf="name.hasError('required')">Name should be required</div>
+           <label for="name">Name</label>
+         </div>
+       </div>
+       <div class="col-md-6">
+         <div class="form-floating mb-3 ">
+           <input type="email" class="form-control" id="email" name="email" placeholder="Enter email" #email="ngModel"
+             ngModel [ngClass]="{'is-invalid' :email.invalid && email.touched}" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required>
+           <div class="text-danger" *ngIf="email.invalid && email.touched">Email is a required field</div>
+           <label for="email">Email </label>
+         </div> 
+         <!-- *ngIf="email.hasError('required')" -->
+       </div>
+     </div>
+     <div class="row">
+       <div class="col-md-6">
+         <div class="form-floating mb-3 ">
+           <input type="password" class="form-control" id="password" name="password" placeholder="Enter password"
+             #password="ngModel" ngModel required>
+           <div class="text-danger" *ngIf="password.hasError('required')">please enter valid password</div>
+           <label for="name">password</label>
+         </div>
+       </div>
+       <div class="col-md-6">
+         <div class="form-floating mb-3 ">
+           <input type="number" class="form-control" id="phone" name="phone" placeholder="Enter email" #number="ngModel"
+             ngModel [ngClass]="{'is-invalid' :number.invalid && number.touched}" minlength="10" pattern="^(\+\d{1,2}\s?)?1?\-?\.?\s?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$" required>
+           <div class="text-danger" *ngIf="number.invalid && number.touched">Phone number should be 10 digits</div>
+           <label for="phone">phone</label>
+           <!-- *ngIf="number.hasError('required')" -->
+         </div>
+       </div>
+     </div>
+     <div class="row">
+       <div class="col-md-6">
+         <div class="form-floating mb-3 ">
+           <input type="text" class="form-control" id="password" name="password" placeholder="Enter password" ngModel>
+           <label for="name">Address</label>
+         </div>
+       </div>
+       <div class="col-md-6">
+         <div class="form-floating mb-3 ">
+           <input type="number" class="form-control" id="pin" name="pin" placeholder="Enter email" #pin="ngModel"
+             ngModel [ngClass]="{'is-invalid' :pin.invalid && pin.touched}" minlength="6" pattern="([1-9]{1}[0-9]{5}|[1-9]{1}[0-9]{3}\\s[0-9]{3})">
+             <div class="text-danger" *ngIf="pin.invalid && pin.touched">6 digits number should be required and 0 shouldn't be 1st number</div>
+           <label for="pin">Pincode</label>
+         </div>
+       </div>
+     </div>
+     <div class="row">
+       <div class="col-md-6">
+         <div class="form-floating mb-3 ">
+
+           <select name="state" id="state" class="form-select" #state="ngModel" ngModel aria-label="select state"
+             required>
+
+             <option value="1">select</option>
+             <option value="2">odisha</option>
+             <option value="3">karnataka</option>
+             <option value="4">maharastra</option>
+           </select>
+           <div class="text-danger" *ngIf="state.hasError('required')">please enter the state name</div>
+           <label for="state">State</label>
+         </div>
+
+       </div>
+       <div class="col-md-6">
+         <div class="form-floating mb-3 ">
+           <select name="City" id="City" class="form-select" #City="ngModel" ngModel aria-label="select City" required>
+
+             <option value="1">select</option>
+             <option value="2">bbsr</option>
+             <option value="3">bengaluru</option>
+             <option value="4">mumbai</option>
+           </select>
+           <div class="text-danger" *ngIf="City.hasError('required')">please enter the Cityname</div>
+           <label for="City">City</label>
+         </div>
+       </div>
+     </div>
+     <div class="row">
+       <div class="col-md-3">
+         <label for="gender" class="form-label"> gender : <span class="text-danger"
+             *ngIf="!gender && myForm.touched">please select a gender</span> </label>
+         <br>
+         <div class="form-check">
+           <input class="form-check-input" type="radio" name="gender" id="male" ngModel value="male" required
+             [(ngModel)]="gender">
+           <label class="form-check-label" for="male">
+             Male
+           </label>
+         </div>
+         <div class="form-check">
+           <input class="form-check-input" type="radio" name="gender" id="female" ngModel value="female" required
+             [(ngModel)]="gender">
+           <label class="form-check-label" for="female">
+             Female
+           </label>
+         </div>
+         <div class="form-check">
+           <input class="form-check-input" type="radio" name="gender" id="other" ngModel value="other" required
+             [(ngModel)]="gender">
+           <label class="form-check-label" for="other">
+             others
+           </label>
+         </div>
+       </div>
+     </div>
+
+     <div class="text-center">
+       <button type="submit" class="btn btn-success btn-lg ">Register</button>
+     </div>
+
+
+
+
+
+   </form>

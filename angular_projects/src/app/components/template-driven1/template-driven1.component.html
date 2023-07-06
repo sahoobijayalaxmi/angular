@@ -1,0 +1,22 @@
+
+<h3 class="text-center">template-driven</h3>
+<form #myform="ngForm" (submit)="submitForm(myform.value)">
+    <p>first name:
+        <input type="text" name="first name" ngModel [(ngModel)]="user.firstname"/>
+    </p>
+    <p>last name:
+        <input type="text" name="last name" ngModel [(ngModel)]="user.lastname"/>
+    </p>
+    <p>email name:
+        <input type="email" name="email" ngModel [(ngModel)]="user.email"/>
+    </p>
+    <fieldset ngModelGroup="address">
+        <p>street:<input name="street" ngModel/></p>
+        <p>city:<input name="city" ngModel/></p>
+        <p>pin:<input name="pin" ngModel/></p>
+    </fieldset>
+    <input type="submit" value="submit">
+    <input type="reset" value="clear">
+    <button type="button" (click)="resetForm(myform)">reset</button>
+</form>
+<h2>{{myform.value | json}}</h2>

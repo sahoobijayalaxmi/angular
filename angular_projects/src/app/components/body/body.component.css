@@ -1,0 +1,8 @@
+.container-fluid{
+    background-image:url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOnD8IpGsRKpMgTfrs2LCXugZmVltEvdWNEQ&usqp=CAU') ;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 400px;
+    padding-top: 70px;
+   
+}

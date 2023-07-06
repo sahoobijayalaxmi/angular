@@ -1,0 +1,23 @@
+<p>users works!</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>image</th>
+            <th>id</th>
+            <th>title</th>
+            <th>desc</th>
+            <th>price</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let product of products">
+            <img src="{{product.image}}" style="height: 100px;">
+            <td>{{product.id}}</td>
+            <td>{{product.title}}</td>
+            <td>{{product.description}}</td>
+            <td>{{product.price}}</td>
+            
+        </tr>
+    </tbody>
+</table>
